@@ -6,8 +6,9 @@ require('dotenv').config();
 const app = express();
 app.use(cors({
   origin: [
-    'https://amigo-invisible-ruby.vercel.app',  // Tu dominio de Vercel
-    'http://localhost:5173'  // Para desarrollo local
+    'https://amigo-invisible-ruby.vercel.app',
+    'http://localhost:5173',
+    'https://web-production-bec0.up.railway.app'
   ],
   methods: ['GET', 'POST'],
   credentials: true
