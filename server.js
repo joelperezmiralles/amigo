@@ -4,7 +4,14 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://amigo-invisible-ruby.vercel.app',  // Tu dominio de Vercel
+    'http://localhost:5173'  // Para desarrollo local
+  ],
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
