@@ -4,11 +4,7 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const app = express();
-app.use(cors({
-  origin: '*',  // Permite todas las origenes durante pruebas
-  methods: ['GET', 'POST'],
-  credentials: true
-}));
+app.use(cors()); // E
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
