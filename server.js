@@ -5,11 +5,7 @@ require('dotenv').config();
 
 const app = express();
 app.use(cors({
-  origin: [
-    'https://amigo-invisible-ruby.vercel.app',
-    'http://localhost:5173',
-    'https://web-production-bec0.up.railway.app'
-  ],
+  origin: '*',  // Permite todas las origenes durante pruebas
   methods: ['GET', 'POST'],
   credentials: true
 }));
@@ -153,6 +149,24 @@ app.post('/sorteo', async (req, res) => {
 });
 
 // ... resto del código ...
+
+// Ruta de prueba
+app.get('/', (req, res) => {
+  res.json({ message: 'Server is running!' });
+});
+
+app.get('/test', (req, res) => {
+  res.json({ 
+    status: 'ok',
+    cors: 'enabled',
+    allowedOrigins: [
+      'https://amigo-invisible-ruby.vercel.app',
+      'http://localhost:5173',
+      'https://web-production-bec0.up.railway.app'
+    ]
+  });
+});
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
